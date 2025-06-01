@@ -1,0 +1,200 @@
+/* Base Theme Variables */
+:root {
+  /* Primary colors */
+  --color-primary: #0072CE;
+  --color-primary-dark: #005EA8;
+  --color-primary-light: #4DA3FF;
+  
+  /* Success colors */
+  --color-success: #008A52;
+  --color-success-dark: #006B40;
+  --color-success-light: #00BF71;
+  
+  /* Warning colors */
+  --color-warning: #FFD100;
+  --color-warning-dark: #E5BC00;
+  --color-warning-light: #FFDE4D;
+  
+  /* Error colors */
+  --color-error: #D50032;
+  --color-error-dark: #B00029;
+  --color-error-light: #FF4D6D;
+
+  /* Neutral colors - light theme defaults */
+  --color-bg-primary: #ffffff;
+  --color-bg-secondary: #f3f4f6;
+  --color-text-primary: #111827;
+  --color-text-secondary: #4b5563;
+  --color-border: #e5e7eb;
+
+  /* Focus ring */
+  --focus-ring-color: rgba(0, 114, 206, 0.5);
+  
+  /* Transition speeds */
+  --transition-speed: 200ms;
+}
+
+/* Light Theme (default) */
+.light-theme {
+  --color-bg-primary: #ffffff;
+  --color-bg-secondary: #f3f4f6;
+  --color-text-primary: #111827;
+  --color-text-secondary: #4b5563;
+  --color-border: #e5e7eb;
+}
+
+/* Dark Theme */
+.dark-theme {
+  --color-bg-primary: #1f2937;
+  --color-bg-secondary: #111827;
+  --color-text-primary: #f9fafb;
+  --color-text-secondary: #d1d5db;
+  --color-border: #374151;
+  
+  --color-primary-light: #5FB0FF;
+}
+
+/* High Contrast Theme */
+.high-contrast-theme {
+  --color-primary: #0000FF;
+  --color-primary-dark: #0000CC;
+  --color-primary-light: #3333FF;
+  
+  --color-success: #008000;
+  --color-success-dark: #006700;
+  --color-success-light: #00A000;
+  
+  --color-warning: #FF8C00;
+  --color-warning-dark: #E57A00;
+  --color-warning-light: #FFA333;
+  
+  --color-error: #FF0000;
+  --color-error-dark: #CC0000;
+  --color-error-light: #FF3333;
+  
+  --color-bg-primary: #FFFFFF;
+  --color-bg-secondary: #F0F0F0;
+  --color-text-primary: #000000;
+  --color-text-secondary: #333333;
+  --color-border: #000000;
+  
+  --focus-ring-color: rgba(0, 0, 255, 0.9);
+}
+
+/* Apply theme colors to Tailwind classes */
+.bg-primary {
+  background-color: var(--color-primary) !important;
+}
+
+.bg-primary-dark {
+  background-color: var(--color-primary-dark) !important;
+}
+
+.bg-primary-light {
+  background-color: var(--color-primary-light) !important;
+}
+
+.text-primary {
+  color: var(--color-primary) !important;
+}
+
+.text-primary-dark {
+  color: var(--color-primary-dark) !important;
+}
+
+.text-primary-light {
+  color: var(--color-primary-light) !important;
+}
+
+.border-primary {
+  border-color: var(--color-primary) !important;
+}
+
+/* Accessible focus styles */
+:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.focus\:ring-primary:focus {
+  box-shadow: 0 0 0 3px var(--focus-ring-color) !important;
+}
+
+/* Animations */
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Skip link for keyboard users */
+.skip-to-content:focus {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 100;
+  padding: 8px 16px;
+  background-color: var(--color-primary);
+  color: white;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+/* Improved button focus states */
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--color-primary) !important;
+  outline-offset: 2px !important;
+}
+
+/* Dropdown styling */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  z-index: 50;
+}
+
+.dropdown:hover .dropdown-content,
+.dropdown:focus-within .dropdown-content {
+  display: block;
+}
+
+/* Theme transitions */
+body {
+  transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+/* Additional accessibility styling */
+/* Ensure buttons and inputs have sufficient size for touch targets */
+button, 
+input[type="button"],
+input[type="submit"] {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* Ensure appropriate line heights for readability */
+p, li, input, textarea, button, a {
+  line-height: 1.5;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.2;
+}
+
+/* Accessible form focus states */
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px var(--focus-ring-color);
+}
